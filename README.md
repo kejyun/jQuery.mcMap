@@ -17,7 +17,76 @@ http://kejyun.github.com/jQuery.mcMap
 <script type="text/javascript" src="jquery.mcmap.js"></script>
 ```
 
-### 完整範例
+
+## 參數選項(Option)
+
+* function : onAfter 建立後處理函式
+* function : onBefore 建立前處理函式
+* object : center 中心點位置
+  * string : x
+  * string : y
+* integer : zoom 地圖縮放大小
+* bool : draggable 是否可以拖曳
+* string : mapTypeId 地圖類型(預設ROADMAP)
+* bool : mapTypeControl 地圖類型控制
+* object : polyline 繪製折線
+  * array : coords 折線點
+  * string : key 主鍵值
+  * string : color 線顏色
+  * float : width 線寬
+  * float : opacity 透明度
+* object : marker 標記
+  * string : position.x 標記位置X
+  * string : position.y 標記位置Y
+  * string : key 主鍵值
+  * string : title alt文字
+  * string : icon 標記圖片
+  * string : infoWindow.text 訊息文字
+  * string : infoWindow.evt 訊息觸發事件(預設click)
+* object : route 路徑
+  * string : key : 路徑主鍵值
+  * object : polyline物件
+  * object : marker物件
+
+## 功能函數
+
+* 路徑顯示控制(MapContainer.ToggleRoute(routeKey))
+* 路徑標記顯示控制(MapContainer.ToggleRouteMarker(routeKey))
+* 折線顯示控制(MapContainer.TogglePolyline(polylineKey))
+* 標記顯示控制(MapContainer.ToggleMarker(markerKey))
+* 新增折線(MapContainer.AddPolyline(option))
+* 新增標記(MapContainer.AddMarker(option))
+* 新增路徑(MapContainer.AddRoute(option))
+
+
+```JavaScript
+// 建立地圖物件
+var MapContainer = $('#map_canvas').mcMap(option);
+
+// 切換路徑顯示(Switch Route Display)
+MapContainer.ToggleRoute(routeKey);
+
+// 切換路徑標記顯示(Switch Route Marker Display)
+MapContainer.ToggleRouteMarker(routeKey);
+
+// 切換折線顯示(Switch Polyline Display)
+MapContainer.TogglePolyline(polylineKey);
+
+// 切換標記顯示(Switch Marker Display)
+MapContainer.ToggleMarker(markerKey);
+
+// 新增折線(Add New Polyline)
+MapContainer.AddPolyline(option);
+
+// 新增標記(Add New Marker)
+MapContainer.AddMarker(option);
+
+// 新增路徑(Add New Route)
+MapContainer.AddRoute(option);
+```
+
+
+## 完整範例
 ```JavaScript
 var MapContainer = $('#map_canvas').mcMap({
   onAfter : function(){   // 建立後處理
@@ -183,72 +252,4 @@ var MapContainer = $('#map_canvas').mcMap({
     }
   ]
 });
-```
-## 參數選項與功能函數
-
-### 參數選項(Option)
-
-* function : onAfter 建立後處理函式
-* function : onBefore 建立前處理函式
-* object : center 中心點位置
-  * string : x
-  * string : y
-* integer : zoom 地圖縮放大小
-* bool : draggable 是否可以拖曳
-* string : mapTypeId 地圖類型(預設ROADMAP)
-* bool : mapTypeControl 地圖類型控制
-* object : polyline 繪製折線
-  * array : coords 折線點
-  * string : key 主鍵值
-  * string : color 線顏色
-  * float : width 線寬
-  * float : opacity 透明度
-* object : marker 標記
-  * string : position.x 標記位置X
-  * string : position.y 標記位置Y
-  * string : key 主鍵值
-  * string : title alt文字
-  * string : icon 標記圖片
-  * string : infoWindow.text 訊息文字
-  * string : infoWindow.evt 訊息觸發事件(預設click)
-* object : route 路徑
-  * string : key : 路徑主鍵值
-  * object : polyline物件
-  * object : marker物件
-
-### 功能
-
-* 路徑顯示控制(MapContainer.ToggleRoute(routeKey))
-* 路徑標記顯示控制(MapContainer.ToggleRouteMarker(routeKey))
-* 折線顯示控制(MapContainer.TogglePolyline(polylineKey))
-* 標記顯示控制(MapContainer.ToggleMarker(markerKey))
-* 新增折線(MapContainer.AddPolyline(option))
-* 新增標記(MapContainer.AddMarker(option))
-* 新增路徑(MapContainer.AddRoute(option))
-
-
-```JavaScript
-// 建立地圖物件
-var MapContainer = $('#map_canvas').mcMap(option);
-
-// 切換路徑顯示(Switch Route Display)
-MapContainer.ToggleRoute(routeKey);
-
-// 切換路徑標記顯示(Switch Route Marker Display)
-MapContainer.ToggleRouteMarker(routeKey);
-
-// 切換折線顯示(Switch Polyline Display)
-MapContainer.TogglePolyline(polylineKey);
-
-// 切換標記顯示(Switch Marker Display)
-MapContainer.ToggleMarker(markerKey);
-
-// 新增折線(Add New Polyline)
-MapContainer.AddPolyline(option);
-
-// 新增標記(Add New Marker)
-MapContainer.AddMarker(option);
-
-// 新增路徑(Add New Route)
-MapContainer.AddRoute(option);
 ```
