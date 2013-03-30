@@ -44,7 +44,7 @@ http://kejyun.github.com/jQuery.mcMap
   * string : infoWindow.text 訊息文字
   * string : infoWindow.evt 訊息觸發事件(預設click)
 * object : route 路徑
-  * string : key : 路徑主鍵值
+  * string : key 路徑主鍵值
   * object : polyline物件
   * object : marker物件
 
