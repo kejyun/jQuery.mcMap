@@ -204,15 +204,17 @@ var MapContainer = $('#map_canvas').mcMap({
   * float : width 線寬
   * float : opacity 透明度
 * object : marker 標記
-  * object : position 標記位置
-    * string : x
-    * string : y
+  * string : position.x 標記位置X
+  * string : position.y 標記位置Y
   * string : key 主鍵值
   * string : title alt文字
   * string : icon 標記圖片
-  * object : infoWindow 訊息視窗
-    * string : text 訊息文字
-    * string : evt 訊息觸發事件(預設click)
+  * string : infoWindow.text 訊息文字
+  * string : infoWindow.evt 訊息觸發事件(預設click)
+* object : route 路徑
+  * string : key : 路徑主鍵值
+  * object : polyline物件
+  * object : marker物件
 
 ### 功能
 
@@ -226,7 +228,27 @@ var MapContainer = $('#map_canvas').mcMap({
 
 
 ```JavaScript
+// 建立地圖物件
 var MapContainer = $('#map_canvas').mcMap(option);
-```
 
-### 參數
+// 切換路徑顯示(Switch Route Display)
+MapContainer.ToggleRoute(routeKey);
+
+// 切換路徑標記顯示(Switch Route Marker Display)
+MapContainer.ToggleRouteMarker(routeKey);
+
+// 切換折線顯示(Switch Polyline Display)
+MapContainer.TogglePolyline(polylineKey);
+
+// 切換標記顯示(Switch Marker Display)
+MapContainer.ToggleMarker(markerKey);
+
+// 新增折線(Add New Polyline)
+MapContainer.AddPolyline(option);
+
+// 新增標記(Add New Marker)
+MapContainer.AddMarker(option);
+
+// 新增路徑(Add New Route)
+MapContainer.AddRoute(option);
+```
