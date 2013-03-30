@@ -188,10 +188,31 @@ var MapContainer = $('#map_canvas').mcMap({
 
 ### 參數選項(Option)
 
-* onAfter
-建立後處理函式
-* onBefore
-建立前處理函式
+* function : onAfter 建立後處理函式
+* function : onBefore 建立前處理函式
+* object : center 中心點位置
+  * string : x
+  * string : y
+* integer : zoom 地圖縮放大小
+* bool : draggable 是否可以拖曳
+* string : mapTypeId 地圖類型(預設ROADMAP)
+* bool : mapTypeControl 地圖類型控制
+* object : polyline 繪製折線
+  * array : coords 折線點
+  * string : key 主鍵值
+  * string : color 線顏色
+  * float : width 線寬
+  * float : opacity 透明度
+* object : marker 標記
+  * object : position 標記位置
+    * string : x
+    * string : y
+  * string : key 主鍵值
+  * string : title alt文字
+  * string : icon 標記圖片
+  * object : infoWindow 訊息視窗
+    * string : text 訊息文字
+    * string : evt 訊息觸發事件(預設click)
 
 ### 功能
 
