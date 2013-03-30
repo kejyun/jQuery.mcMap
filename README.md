@@ -14,11 +14,12 @@ http://kejyun.github.com/jQuery.mcMap
 ```HTML
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="jquery.mcmap.js"></script>
 ```
 
 ### 完整範例
 ```JavaScript
-$('#map_canvas').mcMap({
+var MapContainer = $('#map_canvas').mcMap({
   onAfter : function(){   // 建立後處理
     console.log('後處理');
   },
@@ -183,3 +184,28 @@ $('#map_canvas').mcMap({
   ]
 });
 ```
+## 參數選項與功能函數
+
+### 參數選項(Option)
+
+* onAfter
+建立後處理函式
+* onBefore
+建立前處理函式
+
+### 功能
+
+* 路徑顯示控制(MapContainer.ToggleRoute(routeKey))
+* 路徑標記顯示控制(MapContainer.ToggleRouteMarker(routeKey))
+* 折線顯示控制(MapContainer.TogglePolyline(polylineKey))
+* 標記顯示控制(MapContainer.ToggleMarker(markerKey))
+* 新增折線(MapContainer.AddPolyline(option))
+* 新增標記(MapContainer.AddMarker(option))
+* 新增路徑(MapContainer.AddRoute(option))
+
+
+```JavaScript
+var MapContainer = $('#map_canvas').mcMap(option);
+```
+
+### 參數
