@@ -6,6 +6,7 @@
     <meta name="description" content="jQuery.mcmap : 可以輕鬆的動態管理在Google Map API地圖上的繪圖資訊" />
     <link rel="stylesheet" type="text/css" media="screen" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/mcmap.css">
     <title>jQuery.mcMap</title>
 </head>
 
@@ -54,6 +55,46 @@
                 <li>新增路徑(MapContainer.AddRoute(option))</li>
             </ul>
             <h2>範例(Example)</h2>
+            <p>
+                <a href="https://github.com/kejyun/jQuery.mcMap/blob/gh-pages/javascripts/mcmap.js" target="_blank" class="btn btn-inverse">
+                    <i class="icon-file icon-white"></i> 範例原始碼(Source Code)
+                </a>
+            </p>
+            <div class="map_control_bar">
+                <button class="btn btn-warning polyline" data-key="折線1">
+                    <i class="icon-eye-open icon-white"></i> 折線1
+                </button>
+
+                <button class="btn btn-warning polyline" data-key="折線2">
+                    <i class="icon-eye-open icon-white"></i> 折線2
+                </button>
+
+                <button class="btn btn-danger marker" data-key="標記1">
+                    <i class="icon-eye-open icon-white"></i> 標記1
+                </button>
+
+                <button class="btn btn-danger marker" data-key="標記2">
+                    <i class="icon-eye-open icon-white"></i> 標記2
+                </button>
+            </div>
+            <div class="map_control_bar">
+                <button class="btn btn-primary route" data-key="路徑1">
+                    <i class="icon-eye-open icon-white"></i> 路徑1
+                </button>
+
+                <button class="btn btn-primary route_marker" data-key="路徑1">
+                    <i class="icon-eye-open icon-white"></i> 路徑1:標記
+                </button>
+
+                <button class="btn btn-success route" data-key="路徑2">
+                    <i class="icon-eye-open icon-white"></i> 路徑2
+                </button>
+
+                <button class="btn btn-success route_marker" data-key="路徑2">
+                    <i class="icon-eye-open icon-white"></i> 路徑2:標記
+                </button>
+            </div>
+
             <div id="map_canvas">
 
             </div>
@@ -68,7 +109,7 @@
             <p class="copyright">Blog <a href="http://blog.kejyun.com">Blogger</a></p>
         </footer>
     </div>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="jquery.mcmap.js"></script>

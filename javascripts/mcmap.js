@@ -1,3 +1,4 @@
+var markerImg = 'images/bus.png';
 var MapContainer = $('#map_canvas').mcMap({
   onAfter : function(){   // 建立後處理
     console.log('後處理');
@@ -6,8 +7,8 @@ var MapContainer = $('#map_canvas').mcMap({
     console.log('前處理');
   },
   center: {               // 中心點位置
-    x: '25.025884', 
-    y: '121.53780'
+    x: '25.040893', 
+    y: '121.515827'
   },
   zoom: 12,               // 地圖縮放大小
   control: true,
@@ -23,18 +24,18 @@ var MapContainer = $('#map_canvas').mcMap({
         [25.05673, 121.56005]
       ],
       key:'折線1',      // 折線Key
-      color: '#008800', // 線顏色
-      width: 2,         // 線寬
+      color: '#EA4F54', // 線顏色
+      width: 5,         // 線寬
       opacity:1         // 透明度
     },
     {
       coords: [         // 折線點
-        [25.056739, 121.560051],
+        [25.02394, 121.552734],
         [25.041088, 121.576381]
       ],
       key:'折線2',      // 折線Key
-      color: '#FF8800', // 線顏色
-      width: 2,         // 線寬
+      color: '#924CE8', // 線顏色
+      width: 5,         // 線寬
       opacity:0.8       // 透明度
     }
   ],
@@ -42,12 +43,12 @@ var MapContainer = $('#map_canvas').mcMap({
   [
     {
       position:{          //標記位置
-        x:'25.041088', 
-        y:'121.576381'
+        x:'25.042293', 
+        y:'121.532736'
       },
       key:'標記1',
       title:'標記1',      // alt文字
-      icon:'img/bus.png', // 標記圖片
+      icon:markerImg, // 標記圖片
       infoWindow : {      // 訊息視窗
         text:'標記1',     // 訊息文字
         evt:'click'       // 訊息觸發事件
@@ -55,14 +56,14 @@ var MapContainer = $('#map_canvas').mcMap({
     },
     {
       position:{          //標記位置
-        x:'25.024095', 
-        y:'121.552949'
+        x:'25.084899', 
+        y:'121.524839'
       },
       key:'標記2',
-      title:'標記1',      // alt文字
-      icon:'img/bus.png', // 標記圖片
+      title:'標記2',      // alt文字
+      icon:markerImg, // 標記圖片
       infoWindow : {      // 訊息視窗
-        text:'標記1',     // 訊息文字
+        text:'標記2',     // 訊息文字
         evt:'click'       // 訊息觸發事件
       }
     }
@@ -81,7 +82,7 @@ var MapContainer = $('#map_canvas').mcMap({
           ],
           key:'路徑1',
           color: '#0088FF',
-          width: 2,
+          width: 5,
           opacity:1
         }
       ],
@@ -89,12 +90,12 @@ var MapContainer = $('#map_canvas').mcMap({
       [
         {
           position:{          //標記位置
-            x:'25.993993', 
+            x:'24.993993', 
             y:'121.505013'
           },
           key:'路徑1-標記1',
           title:'路徑1-標記1',      // alt文字
-          icon:'img/bus.png', // 標記圖片
+          icon:markerImg, // 標記圖片
           infoWindow : {      // 訊息視窗
             text:'路徑1-標記1',     // 訊息文字
             evt:'click'       // 訊息觸發事件
@@ -107,9 +108,9 @@ var MapContainer = $('#map_canvas').mcMap({
           },
           key:'路徑1-標記2',
           title:'路徑1-標記2',      // alt文字
-          icon:'img/bus.png', // 標記圖片
+          icon:markerImg, // 標記圖片
           infoWindow : {      // 訊息視窗
-            text:'路徑標記1',     // 訊息文字
+            text:'路徑1-標記2',     // 訊息文字
             evt:'click'       // 訊息觸發事件
           }
         }
@@ -120,13 +121,13 @@ var MapContainer = $('#map_canvas').mcMap({
       polyline : [
         {
           coords: [
-            [25.040815,121.565437],
-            [25.020284,121.560459],
+            [25.021062,121.527758],
+            [24.992904,121.540976],
             [24.998194,121.580029]
           ],
           key:'路徑2',
-          color: '#FF00FF',
-          width: 2,
+          color: '#749631',
+          width: 5,
           opacity:1
         }
       ],
@@ -134,25 +135,25 @@ var MapContainer = $('#map_canvas').mcMap({
       [
         {
           position:{          //標記位置
-            x:'25.040815', 
-            y:'121.565437'
+            x:'25.021062', 
+            y:'121.527758'
           },
           key:'路徑2-標記1',
           title:'路徑2-標記1',      // alt文字
-          icon:'img/bus.png', // 標記圖片
+          icon:markerImg, // 標記圖片
           infoWindow : {      // 訊息視窗
-            text:'路徑標記1',     // 訊息文字
+            text:'路徑2-標記1',     // 訊息文字
             evt:'click'       // 訊息觸發事件
           }
         },
         {
           position:{          //標記位置
-            x:'25.998194', 
+            x:'24.998194', 
             y:'121.580029'
           },
           key:'路徑2-標記2',
           title:'路徑2-標記2',      // alt文字
-          icon:'img/bus.png', // 標記圖片
+          icon:markerImg, // 標記圖片
           infoWindow : {      // 訊息視窗
             text:'路徑2-標記2',     // 訊息文字
             evt:'click'       // 訊息觸發事件
@@ -161,4 +162,28 @@ var MapContainer = $('#map_canvas').mcMap({
       ]
     }
   ]
+});
+// 折線顯示控制
+$('.polyline').click(function(){
+  var $this = $(this),
+      polyline_key = $this.data('key');
+  MapContainer.TogglePolyline(polyline_key);
+});
+// 標記顯示控制
+$('.marker').click(function(){
+  var $this = $(this),
+      marker_key = $this.data('key');
+  MapContainer.ToggleMarker(marker_key);
+});
+// 路徑顯示控制
+$('.route').click(function(){
+  var $this = $(this),
+      route_key = $this.data('key');
+  MapContainer.ToggleRoute(route_key);
+});
+// 路徑標記顯示控制
+$('.route_marker').click(function(){
+  var $this = $(this),
+      route_key = $this.data('key');
+  MapContainer.ToggleRouteMarker(route_key);
 });
