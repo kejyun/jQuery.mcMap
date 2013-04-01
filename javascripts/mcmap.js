@@ -166,24 +166,41 @@ var MapContainer = $('#map_canvas').mcMap({
 // 折線顯示控制
 $('.polyline').click(function(){
   var $this = $(this),
+      $icon = $this.find('i')
       polyline_key = $this.data('key');
   MapContainer.TogglePolyline(polyline_key);
+  iconControl($icon);
 });
 // 標記顯示控制
 $('.marker').click(function(){
   var $this = $(this),
+      $icon = $this.find('i')
       marker_key = $this.data('key');
   MapContainer.ToggleMarker(marker_key);
+  iconControl($icon);
 });
 // 路徑顯示控制
 $('.route').click(function(){
   var $this = $(this),
+      $icon = $this.find('i')
       route_key = $this.data('key');
   MapContainer.ToggleRoute(route_key);
+  iconControl($icon);
 });
 // 路徑標記顯示控制
 $('.route_marker').click(function(){
   var $this = $(this),
+      $icon = $this.find('i')
       route_key = $this.data('key');
   MapContainer.ToggleRouteMarker(route_key);
+  iconControl($icon);
 });
+// icon顯示控制
+var iconControl = function($icon){
+  if ($icon.hasClass('icon-eye-open')) {
+    $icon.removeClass('icon-eye-open').addClass('icon-eye-close');
+  }
+  else{
+    $icon.removeClass('icon-eye-close').addClass('icon-eye-open');
+  }
+}
