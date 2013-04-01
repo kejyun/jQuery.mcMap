@@ -114,18 +114,18 @@ var MapContainer = $('#map_canvas').mcMap({
         [25.05673, 121.56005]
       ],
       key:'折線1',      // 折線Key
-      color: '#008800', // 線顏色
-      width: 2,         // 線寬
+      color: '#EA4F54', // 線顏色
+      width: 5,         // 線寬
       opacity:1         // 透明度
     },
     {
       coords: [         // 折線點
-        [25.056739, 121.560051],
+        [25.02394, 121.552734],
         [25.041088, 121.576381]
       ],
       key:'折線2',      // 折線Key
-      color: '#FF8800', // 線顏色
-      width: 2,         // 線寬
+      color: '#924CE8', // 線顏色
+      width: 5,         // 線寬
       opacity:0.8       // 透明度
     }
   ],
@@ -133,8 +133,8 @@ var MapContainer = $('#map_canvas').mcMap({
   [
     {
       position:{          //標記位置
-        x:'25.041088', 
-        y:'121.576381'
+        x:'25.042293', 
+        y:'121.532736'
       },
       key:'標記1',
       title:'標記1',      // alt文字
@@ -146,8 +146,8 @@ var MapContainer = $('#map_canvas').mcMap({
     },
     {
       position:{          //標記位置
-        x:'25.024095', 
-        y:'121.552949'
+        x:'25.084899', 
+        y:'121.524839'
       },
       key:'標記2',
       title:'標記2',      // alt文字
@@ -172,7 +172,7 @@ var MapContainer = $('#map_canvas').mcMap({
           ],
           key:'路徑1',
           color: '#0088FF',
-          width: 2,
+          width: 5,
           opacity:1
         }
       ],
@@ -211,13 +211,13 @@ var MapContainer = $('#map_canvas').mcMap({
       polyline : [
         {
           coords: [
-            [25.040815,121.565437],
-            [25.020284,121.560459],
+            [25.021062,121.527758],
+            [24.992904,121.540976],
             [24.998194,121.580029]
           ],
           key:'路徑2',
-          color: '#FF00FF',
-          width: 2,
+          color: '#749631',
+          width: 5,
           opacity:1
         }
       ],
@@ -225,8 +225,8 @@ var MapContainer = $('#map_canvas').mcMap({
       [
         {
           position:{          //標記位置
-            x:'25.040815', 
-            y:'121.565437'
+            x:'25.021062', 
+            y:'121.527758'
           },
           key:'路徑2-標記1',
           title:'路徑2-標記1',      // alt文字
