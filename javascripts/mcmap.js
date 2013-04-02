@@ -1,5 +1,7 @@
 var markerImg = 'images/bus.png';
-var MapContainer = $('#map_canvas').mcMap({
+var MapContainerDefault = $('#map_canvas_default').mcMap();
+
+var MapContainer = $('#map_canvas_full').mcMap({
   onAfter : function(){   // 建立後處理
     console.log('後處理');
   },

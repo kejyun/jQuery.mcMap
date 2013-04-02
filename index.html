@@ -31,19 +31,19 @@
         <section id="main_content" class="inner">
             <h1>jQuery mcMap (jQuery Manage Control Map)</h1>
             
-            <h2>版本(version)</h2>
+            <h2>版本(Version)</h2>
             <p>v 1.0</p>
 
-            <h2>修改日期(last modify)</h2>
+            <h2>修改日期(Last modify)</h2>
             <p>2013/03/30</p>
 
             <h2>作者(Author)</h2>
             <p>KeJyun Hong</p>
 
-            <h2>描述(descrition)</h2>
+            <h2>描述(Descrition)</h2>
             <p>動態管理在Google Map API地圖上的繪圖資訊</p>
 
-            <h2>修改紀錄(changelog)</h2>
+            <h2>修改紀錄(Change log)</h2>
             <h3>加入功能</h3>
             <ul>
                 <li>路徑顯示控制(MapContainer.ToggleRoute(routeKey))</li>
@@ -54,50 +54,310 @@
                 <li>新增標記(MapContainer.AddMarker(option))</li>
                 <li>新增路徑(MapContainer.AddRoute(option))</li>
             </ul>
-            <h2>範例(Example)</h2>
+
+            <h2>參數(Option)</h2>
+            <div class="info">
+                <table class="table table-stripe table-bordered">
+                    <tr>
+                        <th>名稱</th>
+                        <th>類型</th>
+                        <th>說明</th>
+                    </tr>
+                    <tr>
+                        <td>onAfter</td>
+                        <td>function</td>
+                        <td>後處理函式</td>
+                    </tr>
+                    <tr>
+                        <td>onBefore</td>
+                        <td>function</td>
+                        <td>前處理函式</td>
+                    </tr>
+                    <tr>
+                        <td>center</td>
+                        <td>object</td>
+                        <td>
+                            中心點位置
+                            <pre>
+center: {
+    x: '25.040893', 
+    y: '121.515827'
+},</pre>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>zoom</td>
+                        <td>integer</td>
+                        <td>
+                            地圖縮放大小
+                            <p class="explain">
+                                範圍:0~18
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>draggable</td>
+                        <td>ool</td>
+                        <td>是否可以拖曳</td>
+                    </tr>
+                    <tr>
+                        <td>mapTypeId</td>
+                        <td>string</td>
+                        <td>
+                            地圖類型
+                            <p class="explain">
+                                ROADMAP、SATELLITE、HYBRID、TERRAIN，預設ROADMAP
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>mapTypeControl</td>
+                        <td>bool</td>
+                        <td>是否開啟地圖類型控制</td>
+                    </tr>
+                    <tr>
+                        <td>polyline</td>
+                        <td>array</td>
+                        <td>繪製折線
+                            <pre>
+[
+    {
+      coords: [         // 折線點
+        [25.05176, 121.54683],
+        [25.05876, 121.55301],
+        [25.05673, 121.56005]
+      ],
+      key:'折線1',      // 折線Key(控制時使用，預設為折線順序)
+      color: '#EA4F54', // 線顏色(預設#FF0000)
+      width: 5,         // 線寬(預設2)
+      opacity:1         // 透明度(0~1，預設1)
+    },
+    {
+      coords: [         // 折線點
+        [25.02394, 121.552734],
+        [25.041088, 121.576381]
+      ],
+      key:'折線2',      // 折線Key(控制時使用，預設為折線順序)
+      color: '#924CE8', // 線顏色(預設#FF0000)
+      width: 5,         // 線寬(預設2)
+      opacity:0.8       // 透明度(0~1，預設1)
+    }
+]</pre>
+                            <p class="explain">
+                                未指定Key時，預設以折線順序當作Key(1、2、3...etc)
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>marker</td>
+                        <td>array</td>
+                        <td>
+                            標記
+                            <pre>
+[
+    {
+      position:{          //標記位置
+        x:'25.042293', 
+        y:'121.532736'
+      },
+      key:'標記1',        // 標記Key(控制時使用，預設為標記順序)
+      title:'標記1',      // alt文字
+      icon:'busStation.png', // 標記圖片(未指定則顯示預設標記)
+      infoWindow : {      // 訊息視窗(未指定則不顯示)
+        text:'標記1',     // 訊息文字
+        evt:'click'       // 訊息觸發事件
+      }
+    },
+    {
+      position:{          //標記位置
+        x:'25.084899', 
+        y:'121.524839'
+      },
+      key:'標記2',        // 標記Key(控制時使用，預設為標記順序)
+      title:'標記2',      // alt文字
+      icon:'busStation.png', // 標記圖片(未指定則顯示預設標記)
+      infoWindow : {      // 訊息視窗(未指定則不顯示)
+        text:'標記2',     // 訊息文字
+        evt:'click'       // 訊息觸發事件
+      }
+    }
+  ]</pre>
+                            <p class="explain">
+                                未指定Key時，預設以標記順序當作Key(1、2、3...etc)
+                            </p>
+                            <p class="explain">
+                                訊息視窗事件:click,dblclick,mouseup,mousedown,mouseover,mouseout，預設為click
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>route</td>
+                        <td>array</td>
+                        <td>
+                            路徑資訊
+                            <pre>
+[
+    {
+      key:'路徑1',            // 標記Key(控制時使用，預設為路徑順序)
+      polyline : [            // 路徑折線:參考上方Polyline說明
+        {
+          coords: [
+            [24.993993,121.505013],
+            [25.045948,121.476688],
+            [25.091351,121.463985]
+          ],
+          key:'路徑1',
+          color: '#0088FF',
+          width: 5,
+          opacity:1
+        }
+      ],
+      marker:                 // 路徑標記:參考上方Marker說明
+      [
+        {
+          position:{
+            x:'24.993993', 
+            y:'121.505013'
+          },
+          key:'路徑1-標記1',
+          title:'路徑1-標記1',
+          icon:'busStation.png',
+          infoWindow : {
+            text:'路徑1-標記1',
+            evt:'click'
+          }
+        },
+        {
+          position:{
+            x:'25.091351', 
+            y:'121.463985'
+          },
+          key:'路徑1-標記2',
+          title:'路徑1-標記2',
+          icon:'busStation.png',
+          infoWindow : {
+            text:'路徑1-標記2',
+            evt:'click'
+          }
+        }
+      ]
+    },
+    {
+      key:'路徑2',            // 標記Key(控制時使用，預設為路徑順序)
+      polyline : [            // 路徑折線:參考上方Polyline說明
+        {
+          coords: [
+            [25.021062,121.527758],
+            [24.992904,121.540976],
+            [24.998194,121.580029]
+          ],
+          key:'路徑2',
+          color: '#749631',
+          width: 5,
+          opacity:1
+        }
+      ],
+      marker:               // 路徑標記:參考上方Marker說明
+      [
+        {
+          position:{
+            x:'25.021062', 
+            y:'121.527758'
+          },
+          key:'路徑2-標記1',
+          title:'路徑2-標記1',
+          icon:'busStation.png',
+          infoWindow : {
+            text:'路徑2-標記1',
+            evt:'click'
+          }
+        },
+        {
+          position:{
+            x:'24.998194', 
+            y:'121.580029'
+          },
+          key:'路徑2-標記2',
+          title:'路徑2-標記2',
+          icon:'busStation.png',
+          infoWindow : {
+            text:'路徑2-標記2',
+            evt:'click'
+          }
+        }
+      ]
+    }
+]</pre>
+                            <p class="explain">
+                                未指定Key時，預設以陣列順序當作Key(1、2、3...etc)
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <h2>範例:預設</h2>
+            <div class="info">
+                <div class="source_code">
+                    <script src="https://gist.github.com/kejyun/5289975.js"></script>
+                </div>
+                
+                <div id="map_canvas_default">
+
+                </div>
+            </div>
+
+
+
+            <h2>完整範例</h2>
             <p>
                 <a href="https://github.com/kejyun/jQuery.mcMap/blob/gh-pages/javascripts/mcmap.js" target="_blank" class="btn btn-inverse">
                     <i class="icon-file icon-white"></i> 範例原始碼(Source Code)
                 </a>
             </p>
-            <div class="map_control_bar">
-                <button class="btn btn-warning polyline" data-key="折線1">
-                    <i class="icon-eye-open icon-white"></i> 折線1
-                </button>
 
-                <button class="btn btn-warning polyline" data-key="折線2">
-                    <i class="icon-eye-open icon-white"></i> 折線2
-                </button>
+            <div id="map_info">
+            
 
-                <button class="btn btn-danger marker" data-key="標記1">
-                    <i class="icon-eye-open icon-white"></i> 標記1
-                </button>
+                <div id="map_canvas_full">
 
-                <button class="btn btn-danger marker" data-key="標記2">
-                    <i class="icon-eye-open icon-white"></i> 標記2
-                </button>
+                </div>
+
+                <div class="map_control_bar">
+                    <button class="btn btn-warning polyline" data-key="折線1">
+                        <i class="icon-eye-open icon-white"></i> 折線1
+                    </button>
+
+                    <button class="btn btn-warning polyline" data-key="折線2">
+                        <i class="icon-eye-open icon-white"></i> 折線2
+                    </button>
+
+                    <button class="btn btn-danger marker" data-key="標記1">
+                        <i class="icon-eye-open icon-white"></i> 標記1
+                    </button>
+
+                    <button class="btn btn-danger marker" data-key="標記2">
+                        <i class="icon-eye-open icon-white"></i> 標記2
+                    </button>
+
+                    <button class="btn btn-primary route" data-key="路徑1">
+                        <i class="icon-eye-open icon-white"></i> 路徑1
+                    </button>
+
+                    <button class="btn btn-primary route_marker" data-key="路徑1">
+                        <i class="icon-eye-open icon-white"></i> 路徑1:標記
+                    </button>
+
+                    <button class="btn btn-success route" data-key="路徑2">
+                        <i class="icon-eye-open icon-white"></i> 路徑2
+                    </button>
+
+                    <button class="btn btn-success route_marker" data-key="路徑2">
+                        <i class="icon-eye-open icon-white"></i> 路徑2:標記
+                    </button>
+                </div>
             </div>
-            <div class="map_control_bar">
-                <button class="btn btn-primary route" data-key="路徑1">
-                    <i class="icon-eye-open icon-white"></i> 路徑1
-                </button>
 
-                <button class="btn btn-primary route_marker" data-key="路徑1">
-                    <i class="icon-eye-open icon-white"></i> 路徑1:標記
-                </button>
-
-                <button class="btn btn-success route" data-key="路徑2">
-                    <i class="icon-eye-open icon-white"></i> 路徑2
-                </button>
-
-                <button class="btn btn-success route_marker" data-key="路徑2">
-                    <i class="icon-eye-open icon-white"></i> 路徑2:標記
-                </button>
-            </div>
-
-            <div id="map_canvas">
-
-            </div>
+            
         </section>
     </div>
 
