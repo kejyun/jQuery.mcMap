@@ -289,10 +289,10 @@ var MapContainerRoute = $('#map_canvas_route').mcMap({
 
 var MapContainer = $('#map_canvas_full').mcMap({
   onAfter : function(){   // 建立後處理
-    console.log('後處理');
+    
   },
   onBefore : function(){  // 建立前處理
-    console.log('前處理');
+    
   },
   center: {               // 中心點位置
     x: '25.040893', 
