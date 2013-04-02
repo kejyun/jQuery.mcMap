@@ -1,7 +1,11 @@
-#map_canvas_full , #map_canvas_default , #map_canvas_polyline , #map_canvas_marker , #map_canvas_route{
+#map_canvas_full , 
+#map_canvas_default , 
+#map_canvas_polyline , 
+#map_canvas_marker , 
+#map_canvas_route,
+#map_canvas_add{
 	width:600px;
 	height:400px;
-	background: red;
 	float: left;
 }
 .map_control_bar{
@@ -51,4 +55,5 @@ pre {
 }
 .source_code{
 	max-width: 800px;
+	display: none;
 }

@@ -1,5 +1,123 @@
 var markerImg = 'images/bus.png';
 var MapContainerDefault = $('#map_canvas_default').mcMap();
+var MapContainerAdd = $('#map_canvas_add').mcMap();
+// 加入折線
+$('.add_polyline').click(function(){
+  MapContainerAdd.AddPolyline({
+    polyline : 
+    [
+      {
+        coords: [         // 折線點
+          [25.035294,121.499691],
+          [25.063054,121.518831],
+          [25.021062,121.527929]
+        ],
+        key:'加入的折線',   // 折線Key
+        color: '#EA4F54', // 線顏色
+        width: 5,         // 線寬
+        opacity:1         // 透明度
+      }
+    ]
+  });
+  $(this).attr("disabled",true);
+});
+// 折線顯示控制
+$('.add_polyline_display').click(function(){
+  var $this = $(this),
+      $icon = $this.find('i')
+      polyline_key = $this.data('key');
+  MapContainerAdd.TogglePolyline(polyline_key);
+  iconControl($icon);
+});
+// 加入標記
+$('.add_marker').click(function(){
+  MapContainerAdd.AddMarker({
+    marker:               // 標記
+    [
+      {
+        position:{          //標記位置
+          x:'25.041515', 
+          y:'121.543293'
+        },
+        key:'加入的標記',
+        title:'加入的標記',      // alt文字
+        icon:markerImg, // 標記圖片
+        infoWindow : {      // 訊息視窗
+          text:'加入的標記',     // 訊息文字
+          evt:'click'       // 訊息觸發事件
+        }
+      }
+    ]
+  });
+  $(this).attr("disabled",true);
+});
+
+// 標記顯示控制
+$('.add_marker_display').click(function(){
+  var $this = $(this),
+      $icon = $this.find('i')
+      marker_key = $this.data('key');
+  MapContainerAdd.ToggleMarker(marker_key);
+  iconControl($icon);
+});
+
+// 加入折線
+$('.add_route').click(function(){
+  MapContainerAdd.AddRoute({
+    route:
+    [
+      {
+        key:'加入的路徑',
+        polyline : [
+          {
+            coords: [
+              [25.063209,121.551275],
+              [25.084044,121.594362],
+              [25.055512,121.617365]
+            ],
+            key:'折線',
+            color: '#0088FF',
+            width: 5,
+            opacity:1
+          }
+        ],
+        marker:               // 標記
+        [
+          {
+            position:{          //標記位置
+              x:'25.084044', 
+              y:'121.594362'
+            },
+            key:'加入的路徑-標記1',
+            title:'加入的路徑-標記1',      // alt文字
+            icon:markerImg, // 標記圖片
+            infoWindow : {      // 訊息視窗
+              text:'加入的路徑-標記1',     // 訊息文字
+              evt:'click'       // 訊息觸發事件
+            }
+          }
+        ]
+      }
+    ]
+  });
+  $(this).attr("disabled",true);
+});
+// 路徑顯示控制
+$('.add_route_display').click(function(){
+  var $this = $(this),
+      $icon = $this.find('i')
+      route_key = $this.data('key');
+  MapContainerAdd.ToggleRoute(route_key);
+  iconControl($icon);
+});
+// 路徑標記顯示控制
+$('.add_route_marker_display').click(function(){
+  var $this = $(this),
+      $icon = $this.find('i')
+      route_key = $this.data('key');
+  MapContainerAdd.ToggleRouteMarker(route_key);
+  iconControl($icon);
+});
 
 var MapContainerPolyline = $('#map_canvas_polyline').mcMap({
   center: {               // 中心點位置
@@ -411,3 +529,10 @@ var iconControl = function($icon){
     $icon.removeClass('icon-eye-close').addClass('icon-eye-open');
   }
 }
+
+
+$('.code_display').click(function(){
+  var $this = $(this),
+      code_key = $this.data('key');
+  $('.'+code_key).toggle('slow');
+});

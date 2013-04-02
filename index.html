@@ -305,8 +305,13 @@ center: {
             </div>
 
             <h2>範例:預設</h2>
+            <p>
+                <button class="btn btn-inverse code_display" data-key="source_code_default">
+                    <i class="icon-file icon-white"></i> 檢視原始碼
+                </button>
+            </p>
             <div class="info">
-                <div class="source_code">
+                <div class="source_code source_code_default">
                     <script src="https://gist.github.com/kejyun/5289975.js"></script>
                 </div>
                 
@@ -316,8 +321,13 @@ center: {
             </div>
 
             <h2>範例:繪製折線&控制折線</h2>
+            <p>
+                <button class="btn btn-inverse code_display" data-key="source_code_polyline">
+                    <i class="icon-file icon-white"></i> 檢視原始碼
+                </button>
+            </p>
             <div id="map_info">
-                <div class="source_code">
+                <div class="source_code source_code_polyline">
                     <script src="https://gist.github.com/kejyun/5291873.js"></script>
                 </div>
                 
@@ -335,8 +345,13 @@ center: {
             </div>
 
             <h2>範例:繪製標記&控制標記</h2>
+            <p>
+                <button class="btn btn-inverse code_display" data-key="source_code_marker">
+                    <i class="icon-file icon-white"></i> 檢視原始碼
+                </button>
+            </p>
             <div id="map_info">
-                <div class="source_code">
+                <div class="source_code source_code_marker">
                     <script src="https://gist.github.com/kejyun/ca8eca599d57d009aa78.js"></script>
                 </div>
                 
@@ -354,8 +369,13 @@ center: {
             </div>
 
             <h2>範例:繪製路徑&控制路徑</h2>
+            <p>
+                <button class="btn btn-inverse code_display" data-key="source_code_route">
+                    <i class="icon-file icon-white"></i> 檢視原始碼
+                </button>
+            </p>
             <div id="map_info">
-                <div class="source_code">
+                <div class="source_code source_code_route">
                     <script src="https://gist.github.com/kejyun/5291950.js"></script>
                 </div>
                 
@@ -380,19 +400,68 @@ center: {
                     </button>
                 </div>
             </div>
+
+            <h2>範例:產生地圖後加入折線、標記、路徑</h2>
+            <p>
+                <button class="btn btn-inverse code_display" data-key="source_code_add">
+                    <i class="icon-file icon-white"></i> 檢視原始碼
+                </button>
+            </p>
+            <div id="map_info">
+                <div class="source_code source_code_add">
+                    <script src="https://gist.github.com/kejyun/5292253.js"></script>
+                </div>
+                
+                <div id="map_canvas_add">
+
+                </div>
+                <div class="map_control_bar">
+                    <button class="btn btn-warning add_polyline" data-key="加入的折線">
+                        <i class="icon-eye-open icon-white"></i> 加入折線
+                    </button>
+
+                    <button class="btn btn-warning add_polyline_display" data-key="加入的折線">
+                        <i class="icon-eye-open icon-white"></i> 控制加入折線
+                    </button>
+
+                    <button class="btn btn-danger add_marker" data-key="加入的標記">
+                        <i class="icon-eye-open icon-white"></i> 加入標記
+                    </button>
+
+                    <button class="btn btn-danger add_marker_display" data-key="加入的標記">
+                        <i class="icon-eye-open icon-white"></i> 控制加入標記
+                    </button>
+
+                    <button class="btn btn-primary add_route" data-key="加入的路徑">
+                        <i class="icon-eye-open icon-white"></i> 加入路徑
+                    </button>
+
+                    <button class="btn btn-primary add_route_display" data-key="加入的路徑">
+                        <i class="icon-eye-open icon-white"></i> 控制加入路徑
+                    </button>
+
+                    <button class="btn btn-primary add_route_marker_display" data-key="加入的路徑">
+                        <i class="icon-eye-open icon-white"></i> 控制加入路徑標記
+                    </button>
+                </div>
+            </div>
             
 
 
 
             <h2>完整範例</h2>
+            
             <p>
-                <a href="https://github.com/kejyun/jQuery.mcMap/blob/gh-pages/javascripts/mcmap.js" target="_blank" class="btn btn-inverse">
-                    <i class="icon-file icon-white"></i> 完整範例原始碼(Source Code)
-                </a>
+                <button class="btn btn-inverse code_display" data-key="source_code_full">
+                    <i class="icon-file icon-white"></i> 檢視原始碼
+                </button>
             </p>
 
             <div id="map_info">
             
+                <div class="source_code source_code_full">
+                  <script src="https://gist.github.com/kejyun/5292278.js"></script>
+                </div>
 
                 <div id="map_canvas_full">
 
