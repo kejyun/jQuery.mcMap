@@ -303,6 +303,7 @@ center: {
                     </tr>
                 </table>
             </div>
+
             <h2>範例:預設</h2>
             <div class="info">
                 <div class="source_code">
@@ -314,42 +315,54 @@ center: {
                 </div>
             </div>
 
-            
-            
-
-
-
-            <h2>完整範例</h2>
-            <p>
-                <a href="https://github.com/kejyun/jQuery.mcMap/blob/gh-pages/javascripts/mcmap.js" target="_blank" class="btn btn-inverse">
-                    <i class="icon-file icon-white"></i> 範例原始碼(Source Code)
-                </a>
-            </p>
-
+            <h2>範例:繪製折線&控制折線</h2>
             <div id="map_info">
-            
-
-                <div id="map_canvas_full">
+                <div class="source_code">
+                    <script src="https://gist.github.com/kejyun/5291873.js"></script>
+                </div>
+                
+                <div id="map_canvas_polyline">
 
                 </div>
-
                 <div class="map_control_bar">
                     <button class="btn btn-warning polyline" data-key="折線1">
                         <i class="icon-eye-open icon-white"></i> 折線1
                     </button>
-
                     <button class="btn btn-warning polyline" data-key="折線2">
                         <i class="icon-eye-open icon-white"></i> 折線2
                     </button>
+                </div>
+            </div>
 
+            <h2>範例:繪製標記&控制標記</h2>
+            <div id="map_info">
+                <div class="source_code">
+                    <script src="https://gist.github.com/kejyun/ca8eca599d57d009aa78.js"></script>
+                </div>
+                
+                <div id="map_canvas_marker">
+
+                </div>
+                <div class="map_control_bar">
                     <button class="btn btn-danger marker" data-key="標記1">
                         <i class="icon-eye-open icon-white"></i> 標記1
                     </button>
-
                     <button class="btn btn-danger marker" data-key="標記2">
                         <i class="icon-eye-open icon-white"></i> 標記2
                     </button>
+                </div>
+            </div>
 
+            <h2>範例:繪製路徑&控制路徑</h2>
+            <div id="map_info">
+                <div class="source_code">
+                    <script src="https://gist.github.com/kejyun/5291950.js"></script>
+                </div>
+                
+                <div id="map_canvas_route">
+
+                </div>
+                <div class="map_control_bar">
                     <button class="btn btn-primary route" data-key="路徑1">
                         <i class="icon-eye-open icon-white"></i> 路徑1
                     </button>
@@ -363,6 +376,58 @@ center: {
                     </button>
 
                     <button class="btn btn-success route_marker" data-key="路徑2">
+                        <i class="icon-eye-open icon-white"></i> 路徑2:標記
+                    </button>
+                </div>
+            </div>
+            
+
+
+
+            <h2>完整範例</h2>
+            <p>
+                <a href="https://github.com/kejyun/jQuery.mcMap/blob/gh-pages/javascripts/mcmap.js" target="_blank" class="btn btn-inverse">
+                    <i class="icon-file icon-white"></i> 完整範例原始碼(Source Code)
+                </a>
+            </p>
+
+            <div id="map_info">
+            
+
+                <div id="map_canvas_full">
+
+                </div>
+
+                <div class="map_control_bar">
+                    <button class="btn btn-warning polyline_full" data-key="折線1">
+                        <i class="icon-eye-open icon-white"></i> 折線1
+                    </button>
+
+                    <button class="btn btn-warning polyline_full" data-key="折線2">
+                        <i class="icon-eye-open icon-white"></i> 折線2
+                    </button>
+
+                    <button class="btn btn-danger marker_full" data-key="標記1">
+                        <i class="icon-eye-open icon-white"></i> 標記1
+                    </button>
+
+                    <button class="btn btn-danger marker_full" data-key="標記2">
+                        <i class="icon-eye-open icon-white"></i> 標記2
+                    </button>
+
+                    <button class="btn btn-primary route_full" data-key="路徑1">
+                        <i class="icon-eye-open icon-white"></i> 路徑1
+                    </button>
+
+                    <button class="btn btn-primary route_marker_full" data-key="路徑1">
+                        <i class="icon-eye-open icon-white"></i> 路徑1:標記
+                    </button>
+
+                    <button class="btn btn-success route_full" data-key="路徑2">
+                        <i class="icon-eye-open icon-white"></i> 路徑2
+                    </button>
+
+                    <button class="btn btn-success route_marker_full" data-key="路徑2">
                         <i class="icon-eye-open icon-white"></i> 路徑2:標記
                     </button>
                 </div>
